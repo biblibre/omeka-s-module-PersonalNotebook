@@ -1,0 +1,101 @@
+---
+{
+   "kind": "pipeline",
+   "name": "omeka:3.0.2 php:7.4 mariadb:10.5",
+   "services": [
+      {
+         "environment": {
+            "MYSQL_DATABASE": "omeka_test",
+            "MYSQL_ROOT_PASSWORD": "root"
+         },
+         "image": "mariadb:10.5",
+         "name": "db"
+      }
+   ],
+   "steps": [
+      {
+         "commands": [
+            "cp -rT /usr/src/omeka-s ../..",
+            "echo 'host = \"db\"\\nuser = \"root\"\\npassword = \"root\"\\ndbname = \"omeka_test\"\\n' > ../../application/test/config/database.ini",
+            "bash -c \"cd ../.. && php /usr/local/libexec/wait-for-db.php\"",
+            "../../vendor/bin/phpunit",
+            "../../node_modules/.bin/gulp test:module:cs"
+         ],
+         "image": "biblibre/omeka-s-ci:3.0.2-php7.4",
+         "name": "test"
+      }
+   ],
+   "type": "docker",
+   "workspace": {
+      "path": "omeka-s/modules/PersonalNotebook"
+   }
+}
+---
+{
+   "kind": "pipeline",
+   "name": "omeka:3.1.2 php:7.4 mariadb:10.5",
+   "services": [
+      {
+         "environment": {
+            "MYSQL_DATABASE": "omeka_test",
+            "MYSQL_ROOT_PASSWORD": "root"
+         },
+         "image": "mariadb:10.5",
+         "name": "db"
+      }
+   ],
+   "steps": [
+      {
+         "commands": [
+            "cp -rT /usr/src/omeka-s ../..",
+            "echo 'host = \"db\"\\nuser = \"root\"\\npassword = \"root\"\\ndbname = \"omeka_test\"\\n' > ../../application/test/config/database.ini",
+            "bash -c \"cd ../.. && php /usr/local/libexec/wait-for-db.php\"",
+            "../../vendor/bin/phpunit",
+            "../../node_modules/.bin/gulp test:module:cs"
+         ],
+         "image": "biblibre/omeka-s-ci:3.1.2-php7.4",
+         "name": "test"
+      }
+   ],
+   "type": "docker",
+   "workspace": {
+      "path": "omeka-s/modules/PersonalNotebook"
+   }
+}
+---
+{
+   "kind": "pipeline",
+   "name": "omeka:3.2.3 php:7.4 mariadb:10.5",
+   "services": [
+      {
+         "environment": {
+            "MYSQL_DATABASE": "omeka_test",
+            "MYSQL_ROOT_PASSWORD": "root"
+         },
+         "image": "mariadb:10.5",
+         "name": "db"
+      }
+   ],
+   "steps": [
+      {
+         "commands": [
+            "cp -rT /usr/src/omeka-s ../..",
+            "echo 'host = \"db\"\\nuser = \"root\"\\npassword = \"root\"\\ndbname = \"omeka_test\"\\n' > ../../application/test/config/database.ini",
+            "bash -c \"cd ../.. && php /usr/local/libexec/wait-for-db.php\"",
+            "../../vendor/bin/phpunit",
+            "../../node_modules/.bin/gulp test:module:cs"
+         ],
+         "image": "biblibre/omeka-s-ci:3.2.3-php7.4",
+         "name": "test"
+      }
+   ],
+   "type": "docker",
+   "workspace": {
+      "path": "omeka-s/modules/PersonalNotebook"
+   }
+}
+---
+kind: signature
+hmac: dd4c2a02364ef66a0b2f20dbd15acbb5dc9a64c4c35eaa8389705de606d7729f
+
+...
