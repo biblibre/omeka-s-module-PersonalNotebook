@@ -2,11 +2,98 @@
 
 namespace PersonalNotebook;
 
-use Omeka\Module\AbstractModule;
+use Laminas\EventManager\Event;
+use Laminas\EventManager\SharedEventManagerInterface;
+use Laminas\Mvc\MvcEvent;
 use Laminas\ServiceManager\ServiceLocatorInterface;
+use Omeka\Form\SiteSettingsForm;
+use Omeka\Module\AbstractModule;
+use PersonalNotebook\Form\SiteSettingsFieldset;
 
 class Module extends AbstractModule
 {
+    public function onBootstrap(MvcEvent $event)
+    {
+        parent::onBootstrap($event);
+
+        $services = $this->getServiceLocator();
+
+        $acl = $services->get('Omeka\Acl');
+        $acl->allow(null, 'PersonalNotebook\Api\Adapter\NoteAdapter');
+        $acl->allow(null, 'PersonalNotebook\Controller\Note');
+        $acl->allow(null, 'PersonalNotebook\Entity\Note');
+
+        $em = $services->get('Omeka\EntityManager');
+        $em->getFilters()->enable('personalnotebook_note_visibility');
+        $em->getFilters()->getFilter('personalnotebook_note_visibility')->setServiceLocator($services);
+    }
+
+    public function attachListeners(SharedEventManagerInterface $sharedEventManager)
+    {
+        $services = $this->getServiceLocator();
+        $siteSettings = $services->get('Omeka\Settings\Site');
+
+        $sharedEventManager->attach(
+            SiteSettingsForm::class,
+            'form.add_elements',
+            [$this, 'onSiteSettingsFormAddElements']
+        );
+
+        $sharedEventManager->attach(
+            'Omeka\Controller\Site\Item',
+            'view.show.after',
+            [$this, 'onSiteItemViewShowAfter']
+        );
+
+        $sharedEventManager->attach(
+            'Omeka\Controller\Site\Media',
+            'view.show.after',
+            [$this, 'onSiteMediaViewShowAfter']
+        );
+    }
+
+    public function onSiteSettingsFormAddElements(Event $event)
+    {
+        $services = $this->getServiceLocator();
+        $forms = $services->get('FormElementManager');
+        $siteSettings = $services->get('Omeka\Settings\Site');
+
+        $fieldset = $forms->get(SiteSettingsFieldset::class);
+        $fieldset->populateValues([
+            'personalnotebook_show_after_item' => $siteSettings->get('personalnotebook_show_after_item'),
+            'personalnotebook_show_after_media' => $siteSettings->get('personalnotebook_show_after_media'),
+        ]);
+
+        $form = $event->getTarget();
+        $form->add($fieldset);
+    }
+
+    public function onSiteItemViewShowAfter(Event $event)
+    {
+        $services = $this->getServiceLocator();
+        $siteSettings = $services->get('Omeka\Settings\Site');
+        if (!$siteSettings->get('personalnotebook_show_after_item')) {
+            return;
+        }
+
+        $view = $event->getTarget();
+
+        echo $view->personalNotebook()->form($view->item);
+    }
+
+    public function onSiteMediaViewShowAfter(Event $event)
+    {
+        $services = $this->getServiceLocator();
+        $siteSettings = $services->get('Omeka\Settings\Site');
+        if (!$siteSettings->get('personalnotebook_show_after_media')) {
+            return;
+        }
+
+        $view = $event->getTarget();
+
+        echo $view->personalNotebook()->form($view->media);
+    }
+
     public function install(ServiceLocatorInterface $serviceLocator)
     {
         $connection = $serviceLocator->get('Omeka\Connection');

@@ -1,0 +1,9 @@
+details.personal-notebook-wrapper > summary {
+    cursor: pointer;
+}
+
+.personal-notebook-form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 1em;
+}

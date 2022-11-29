@@ -6,6 +6,9 @@ use Doctrine\ORM\QueryBuilder;
 use Omeka\Api\Adapter\AbstractEntityAdapter;
 use Omeka\Api\Request;
 use Omeka\Entity\EntityInterface;
+use Omeka\Entity\Item;
+use Omeka\Entity\ItemSet;
+use Omeka\Entity\Media;
 use Omeka\Stdlib\ErrorStore;
 use PersonalNotebook\Api\Representation\NoteRepresentation;
 use PersonalNotebook\Entity\Note;
@@ -92,12 +95,13 @@ class NoteAdapter extends AbstractEntityAdapter
                     $this->authorize($entity, 'change-resource');
 
                     if ($newResourceId) {
-                        $resource = $this->getAdapter('items')->findEntity($newResourceId);
+                        $em = $this->getEntityManager();
+                        $resource = $em->find(Item::class, $newResourceId);
                         if (!$resource) {
-                            $resource = $this->getAdapter('media')->findEntity($newResourceId);
+                            $resource = $em->find(Media::class, $newResourceId);
                         }
                         if (!$resource) {
-                            $resource = $this->getAdapter('item_sets')->findEntity($newResourceId);
+                            $resource = $em->find(ItemSet::class);
                         }
                     }
                 }
@@ -116,6 +120,15 @@ class NoteAdapter extends AbstractEntityAdapter
                 $qb->expr()->eq(
                     "$userAlias",
                     $this->createNamedParameter($qb, $query['owner_id'])
+                )
+            );
+        }
+
+        if (!empty($query['resource_id'])) {
+            $qb->andWhere(
+                $qb->expr()->eq(
+                    'omeka_root.resource',
+                    $this->createNamedParameter($qb, $query['resource_id'])
                 )
             );
         }

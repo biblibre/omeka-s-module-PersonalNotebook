@@ -1,0 +1,48 @@
+# French translations for PACKAGE package.
+# Copyright (C) 2022 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-29 16:25+0100\n"
+"PO-Revision-Date: 2022-11-29 16:27+0100\n"
+"Last-Translator: Julian Maurice <julian.maurice@biblibre.com>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#: view/personal-notebook/helper/personal-notebook/form.phtml:5
+msgid "Personal notes"
+msgstr "Notes personnelles"
+
+#: view/personal-notebook/helper/personal-notebook/form.phtml:12
+#, php-format
+msgid "Take notes about %s"
+msgstr "Prenez des notes à propos de %s"
+
+#: view/personal-notebook/helper/personal-notebook/form.phtml:14
+msgid "Save my notes"
+msgstr "Enregistrer mes notes"
+
+#: src/Form/SiteSettingsFieldset.php:13
+msgid "Personal Notebook"
+msgstr "Carnet de notes personnel"
+
+#: src/Form/SiteSettingsFieldset.php:19
+msgid "Show on item page"
+msgstr "Afficher sur les pages de contenu"
+
+#: src/Form/SiteSettingsFieldset.php:27
+msgid "Show on media page"
+msgstr "Afficher sur les pages de media"
+
+#: src/Api/Adapter/NoteAdapter.php:140
+msgid "A note must have an owner."
+msgstr "Une note doit avoir un propriétaire."

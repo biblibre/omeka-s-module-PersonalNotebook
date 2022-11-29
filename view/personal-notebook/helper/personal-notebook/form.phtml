@@ -1,0 +1,16 @@
+<?php $this->headLink()->appendStylesheet($this->assetUrl('css/personal-notebook.css', 'PersonalNotebook')); ?>
+<?php $this->headScript()->appendFile($this->assetUrl('js/personal-notebook.js', 'PersonalNotebook')); ?>
+
+<details class="personal-notebook-wrapper">
+    <summary><?php echo $this->translate('Personal notes'); ?></summary>
+
+    <?php $note = $this->personalNotebook()->getNote($resource); ?>
+
+    <form class="personal-notebook-form" data-url="<?php echo $this->url('personal-notebook/notes', $note ? ['id' => $note->id()] : []); ?>" data-method="<?php echo $note ? 'PUT' : 'POST' ?>">
+        <input type="hidden" name="o-module-personal-notebook:resource[o:id]" value="<?php echo $resource->id(); ?>">
+
+        <textarea name="o-module-personal-notebook:content" placeholder="<?php echo $this->escapeHtml(sprintf($this->translate('Take notes about %s'), $resource->displayTitle())); ?>"><?php echo $note ? $this->escapeHtml($note->content()) : '' ?></textarea>
+
+        <button type="submit"><?php echo $this->translate('Save my notes'); ?></button>
+    </form>
+</details>
