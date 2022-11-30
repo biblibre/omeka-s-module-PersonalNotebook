@@ -4,13 +4,10 @@
 <details class="personal-notebook-wrapper">
     <summary><?php echo $this->translate('Personal notes'); ?></summary>
 
-    <?php $note = $this->personalNotebook()->getNote($resource); ?>
-
-    <form class="personal-notebook-form" data-url="<?php echo $this->url('personal-notebook/notes', $note ? ['id' => $note->id()] : []); ?>" data-method="<?php echo $note ? 'PUT' : 'POST' ?>">
-        <input type="hidden" name="o-module-personal-notebook:resource[o:id]" value="<?php echo $resource->id(); ?>">
-
-        <textarea name="o-module-personal-notebook:content" placeholder="<?php echo $this->escapeHtml(sprintf($this->translate('Take notes about %s'), $resource->displayTitle())); ?>"><?php echo $note ? $this->escapeHtml($note->content()) : '' ?></textarea>
-
+    <?php $form->prepare(); ?>
+    <?php echo $this->form()->openTag($form); ?>
+        <?php echo $this->formCollection($form, false); ?>
         <button type="submit"><?php echo $this->translate('Save my notes'); ?></button>
-    </form>
+        <span class="personal-notebook-save-result"></span>
+    <?php echo $this->form()->closeTag(); ?>
 </details>

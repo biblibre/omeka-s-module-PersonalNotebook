@@ -1,0 +1,10 @@
+<?php $form->prepare(); ?>
+<?php echo $this->form()->openTag($form); ?>
+    <?php echo $this->formCollection($form, false); ?>
+    <input type="hidden" name="redirect_url" value="<?php echo $this->escapeHtml($redirectUrl); ?>">
+    <div><?php echo $this->translate('The following notes will be permanently deleted.'); ?></div>
+    <textarea disabled readonly><?php echo $this->escapeHtml($note->content()); ?></textarea>
+    <div>
+        <button type="submit"><?php echo $this->translate('Confirm notes deletion'); ?></button>
+    </div>
+<?php echo $this->form()->closeTag(); ?>

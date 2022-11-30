@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-29 16:25+0100\n"
+"POT-Creation-Date: 2022-11-30 16:43+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,21 +17,37 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: src/Site/BlockLayout/PersonalNotebook.php:21
+msgid "Personal Notebook"
+msgstr ""
+
+#: view/personal-notebook/block-layout/personal-notebook.phtml:1
 #: view/personal-notebook/helper/personal-notebook/form.phtml:5
 msgid "Personal notes"
 msgstr ""
 
-#: view/personal-notebook/helper/personal-notebook/form.phtml:12
-#, php-format
-msgid "Take notes about %s"
+#: view/personal-notebook/block-layout/personal-notebook.phtml:8
+msgid "Notes"
 msgstr ""
 
-#: view/personal-notebook/helper/personal-notebook/form.phtml:14
+#: view/personal-notebook/block-layout/personal-notebook.phtml:9
+msgid "Actions"
+msgstr ""
+
+#: view/personal-notebook/block-layout/personal-notebook.phtml:16
+msgid "Resource missing"
+msgstr ""
+
+#: view/personal-notebook/helper/personal-notebook/form.phtml:10
 msgid "Save my notes"
 msgstr ""
 
-#: src/Form/SiteSettingsFieldset.php:13
-msgid "Personal Notebook"
+#: view/personal-notebook/site/note/delete.phtml:5
+msgid "The following notes will be permanently deleted."
+msgstr ""
+
+#: view/personal-notebook/site/note/delete.phtml:8
+msgid "Confirm notes deletion"
 msgstr ""
 
 #: src/Form/SiteSettingsFieldset.php:19

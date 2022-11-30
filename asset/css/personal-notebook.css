@@ -7,3 +7,20 @@ details.personal-notebook-wrapper > summary {
     width: 100%;
     margin-bottom: 1em;
 }
+
+.personal-notebook-save-result {
+    display: inline-block;
+    padding: 7.5px;
+}
+
+.personal-notebook-save-result-success {
+    color: green;
+}
+
+.personal-notebook-save-result-error {
+    color: red;
+}
+
+.personal-notebook-table {
+    width: 100%;
+}

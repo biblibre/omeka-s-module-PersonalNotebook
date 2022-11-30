@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-29 16:25+0100\n"
-"PO-Revision-Date: 2022-11-29 16:27+0100\n"
+"POT-Creation-Date: 2022-11-30 16:43+0100\n"
+"PO-Revision-Date: 2022-11-30 16:44+0100\n"
 "Last-Translator: Julian Maurice <julian.maurice@biblibre.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -18,22 +18,38 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 2.4.2\n"
 
+#: src/Site/BlockLayout/PersonalNotebook.php:21
+msgid "Personal Notebook"
+msgstr "Carnet de notes personnel"
+
+#: view/personal-notebook/block-layout/personal-notebook.phtml:1
 #: view/personal-notebook/helper/personal-notebook/form.phtml:5
 msgid "Personal notes"
 msgstr "Notes personnelles"
 
-#: view/personal-notebook/helper/personal-notebook/form.phtml:12
-#, php-format
-msgid "Take notes about %s"
-msgstr "Prenez des notes à propos de %s"
+#: view/personal-notebook/block-layout/personal-notebook.phtml:8
+msgid "Notes"
+msgstr "Notes"
 
-#: view/personal-notebook/helper/personal-notebook/form.phtml:14
+#: view/personal-notebook/block-layout/personal-notebook.phtml:9
+msgid "Actions"
+msgstr "Actions"
+
+#: view/personal-notebook/block-layout/personal-notebook.phtml:16
+msgid "Resource missing"
+msgstr "Ressource manquante"
+
+#: view/personal-notebook/helper/personal-notebook/form.phtml:10
 msgid "Save my notes"
 msgstr "Enregistrer mes notes"
 
-#: src/Form/SiteSettingsFieldset.php:13
-msgid "Personal Notebook"
-msgstr "Carnet de notes personnel"
+#: view/personal-notebook/site/note/delete.phtml:5
+msgid "The following notes will be permanently deleted."
+msgstr "Les notes suivantes seront supprimées définitivement."
+
+#: view/personal-notebook/site/note/delete.phtml:8
+msgid "Confirm notes deletion"
+msgstr "Confirmer la suppression des notes"
 
 #: src/Form/SiteSettingsFieldset.php:19
 msgid "Show on item page"

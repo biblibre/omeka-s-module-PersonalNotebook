@@ -1,0 +1,28 @@
+<h2><?php echo $this->translate('Personal notes'); ?></h2>
+
+<div class="personal-notebook-table-wrapper">
+    <table class="personal-notebook-table">
+        <thead>
+            <tr>
+                <th><?php echo $this->translate('Resource'); ?></th>
+                <th><?php echo $this->translate('Notes'); ?></th>
+                <th><?php echo $this->translate('Actions'); ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($notes as $note): ?>
+                <?php $resource = $note->resource(); ?>
+                <tr>
+                    <td><?php echo $resource ? $resource->linkPretty() : $this->translate('Resource missing'); ?></td>
+                    <td><?php echo $this->personalNotebook()->form($note); ?></td>
+                    <td>
+                        <form id="personal-notebook-note-delete-form-<?php echo $note->id(); ?>" action="<?php echo $this->url('site/personal-notebook/notes-id', ['id' => $note->id(), 'action' => 'delete'], [], true); ?>" method="get">
+                            <input type="hidden" name="redirect_url" value="<?php echo $this->url(null, [], [], true); ?>">
+                            <button type="submit"><?php echo $this->translate('Delete'); ?></button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

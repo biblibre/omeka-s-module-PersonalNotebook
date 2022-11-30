@@ -13,7 +13,6 @@ class NoteVisibilityFilter extends SQLFilter
 
     public function addFilterConstraint(ClassMetadata $targetEntity, $targetTableAlias)
     {
-        $this->serviceLocator->get('Omeka\Logger')->err('aaaa');
         if ($targetEntity->getName() !== Note::class) {
             return '';
         }
