@@ -21,6 +21,7 @@ class Module extends AbstractModule
         $acl = $services->get('Omeka\Acl');
         $acl->allow(null, 'PersonalNotebook\Api\Adapter\NoteAdapter');
         $acl->allow(null, 'PersonalNotebook\Controller\Note');
+        $acl->allow(null, 'PersonalNotebook\Controller\Site\Note');
         $acl->allow(null, 'PersonalNotebook\Entity\Note');
 
         $em = $services->get('Omeka\EntityManager');

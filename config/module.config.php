@@ -43,6 +43,16 @@ return [
                             ],
                         ],
                         'child_routes' => [
+                            'notes-csv' => [
+                                'type' => \Laminas\Router\Http\Literal::class,
+                                'options' => [
+                                    'route' => '/notes.csv',
+                                    'defaults' => [
+                                        'controller' => 'Note',
+                                        'action' => 'export-as-csv',
+                                    ],
+                                ],
+                            ],
                             'notes-id' => [
                                 'type' => \Laminas\Router\Http\Segment::class,
                                 'options' => [

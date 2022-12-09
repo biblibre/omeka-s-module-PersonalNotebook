@@ -1,4 +1,12 @@
+<?php
+/**
+ * @var $notes \PersonalNotebook\Api\Representation\NoteRepresentation[]
+ */
+?>
+
 <h2><?php echo $this->translate('Personal notes'); ?></h2>
+
+<a href="<?php echo $this->url('site/personal-notebook/notes-csv', [], [], true); ?>"><?php echo $this->translate('Export as CSV'); ?></a>
 
 <div class="personal-notebook-table-wrapper">
     <table class="personal-notebook-table">

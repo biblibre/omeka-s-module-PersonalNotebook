@@ -1,5 +1,15 @@
-<?php $this->headLink()->appendStylesheet($this->assetUrl('css/personal-notebook.css', 'PersonalNotebook')); ?>
-<?php $this->headScript()->appendFile($this->assetUrl('js/personal-notebook.js', 'PersonalNotebook')); ?>
+<?php
+/**
+ * @var $note \PersonalNotebook\Api\Representation\NoteRepresentation|null
+ * @var $resource \Omeka\Api\Representation\AbstractResourceEntityRepresentation|null
+ * @var $form \PersonalNotebook\Form\NoteForm
+ */
+?>
+
+<?php
+$this->headLink()->appendStylesheet($this->assetUrl('css/personal-notebook.css', 'PersonalNotebook'));
+$this->headScript()->appendFile($this->assetUrl('js/personal-notebook.js', 'PersonalNotebook'));
+?>
 
 <details class="personal-notebook-wrapper">
     <summary><?php echo $this->translate('Personal notes'); ?></summary>
