@@ -37,7 +37,7 @@ class NoteControllerTest extends TestCase
 
         $this->logout();
         $this->login('user1234@example.org', 'user1234');
-            $identity = $this->getServiceLocator()
+        $identity = $this->getServiceLocator()
                 ->get('Omeka\AuthenticationService')->getIdentity();
     }
 
