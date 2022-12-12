@@ -8,6 +8,7 @@ use Laminas\Mvc\MvcEvent;
 use Laminas\ServiceManager\ServiceLocatorInterface;
 use Omeka\Form\SiteSettingsForm;
 use Omeka\Module\AbstractModule;
+use PersonalNotebook\Entity\Note;
 use PersonalNotebook\Form\SiteSettingsFieldset;
 
 class Module extends AbstractModule
@@ -51,6 +52,12 @@ class Module extends AbstractModule
             'view.show.after',
             [$this, 'onSiteMediaViewShowAfter']
         );
+
+        $sharedEventManager->attach(
+            'Omeka\Controller\Admin\Index',
+            'view.browse.after',
+            [$this, 'onAdminIndexViewBrowseAfter']
+        );
     }
 
     public function onSiteSettingsFormAddElements(Event $event)
@@ -93,6 +100,26 @@ class Module extends AbstractModule
         $view = $event->getTarget();
 
         echo $view->personalNotebook()->form($view->media);
+    }
+
+    public function onAdminIndexViewBrowseAfter(Event $event)
+    {
+        $services = $this->getServiceLocator();
+        $em = $services->get('Omeka\EntityManager');
+
+        $notesRepository = $em->getRepository(Note::class);
+        $numberOfNotes = $notesRepository->count([]);
+
+        $numberOfUsers = $em->createQuery('SELECT COUNT(DISTINCT note.owner) FROM PersonalNotebook\Entity\Note note')->getSingleScalarResult();
+
+        $view = $event->getTarget();
+
+        $variables = [
+            'numberOfNotes' => $numberOfNotes,
+            'numberOfUsers' => $numberOfUsers,
+        ];
+
+        echo $view->partial('personal-notebook/admin/index/personal-notebook-panel', $variables);
     }
 
     public function install(ServiceLocatorInterface $serviceLocator)

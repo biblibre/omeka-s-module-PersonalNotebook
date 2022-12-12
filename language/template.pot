@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-08 16:28+0100\n"
+"POT-Creation-Date: 2022-12-12 15:09+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,6 +28,18 @@ msgstr ""
 
 #: src/Site/BlockLayout/PersonalNotebook.php:21
 msgid "Personal Notebook"
+msgstr ""
+
+#: view/personal-notebook/admin/index/personal-notebook-panel.phtml:2
+msgid "Personal notebook"
+msgstr ""
+
+#: view/personal-notebook/admin/index/personal-notebook-panel.phtml:4
+msgid "Number of notes written:"
+msgstr ""
+
+#: view/personal-notebook/admin/index/personal-notebook-panel.phtml:8
+msgid "Number of users that wrote a note:"
 msgstr ""
 
 #: view/personal-notebook/block-layout/personal-notebook.phtml:7

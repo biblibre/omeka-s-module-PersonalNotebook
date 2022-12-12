@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-08 16:28+0100\n"
-"PO-Revision-Date: 2022-12-08 16:29+0100\n"
+"POT-Creation-Date: 2022-12-12 15:09+0100\n"
+"PO-Revision-Date: 2022-12-12 15:11+0100\n"
 "Last-Translator: Julian Maurice <julian.maurice@biblibre.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -30,6 +30,18 @@ msgstr "Notes"
 #: src/Site/BlockLayout/PersonalNotebook.php:21
 msgid "Personal Notebook"
 msgstr "Carnet de notes personnel"
+
+#: view/personal-notebook/admin/index/personal-notebook-panel.phtml:2
+msgid "Personal notebook"
+msgstr "Carnet de notes personnel"
+
+#: view/personal-notebook/admin/index/personal-notebook-panel.phtml:4
+msgid "Number of notes written:"
+msgstr "Nombre de notes écrites:"
+
+#: view/personal-notebook/admin/index/personal-notebook-panel.phtml:8
+msgid "Number of users that wrote a note:"
+msgstr "Nombre d'utilisateurs ayant écrit une note:"
 
 #: view/personal-notebook/block-layout/personal-notebook.phtml:7
 #: view/personal-notebook/helper/personal-notebook/form.phtml:15
