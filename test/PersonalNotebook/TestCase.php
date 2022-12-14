@@ -10,6 +10,7 @@ abstract class TestCase extends AbstractHttpControllerTestCase
     {
         parent::setUp();
 
+        $this->setupHostname();
         $this->loginAsAdmin();
     }
 
@@ -53,5 +54,14 @@ abstract class TestCase extends AbstractHttpControllerTestCase
         $serviceLocator = $this->getServiceLocator();
         $auth = $serviceLocator->get('Omeka\AuthenticationService');
         $auth->clearIdentity();
+    }
+
+    protected function setupHostname()
+    {
+        $viewHelperManager = $this->getServiceLocator()->get('ViewHelperManager');
+        $viewHelperManager->get('BasePath')->setBasePath('/');
+        $serverUrlHelper = $viewHelperManager->get('ServerUrl');
+        $serverUrlHelper->setHost('localhost');
+        $_SERVER['SERVER_NAME'] = 'localhost';
     }
 }
