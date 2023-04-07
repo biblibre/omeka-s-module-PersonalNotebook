@@ -1,2 +1,4 @@
-<h4><?php echo $this->translate('Personal notes'); ?></h4>
-<?php echo $this->personalNotebook()->form($resource); ?>
+<?php if ($this->identity()): ?>
+    <h4><?php echo $this->translate('Personal notes'); ?></h4>
+    <?php echo $this->personalNotebook()->form($resource); ?>
+<?php endif; ?>
