@@ -1,5 +1,5 @@
-details.personal-notebook-wrapper > summary {
-    cursor: pointer;
+.personal-notebook-form {
+    position: relative;
 }
 
 .personal-notebook-form textarea {
@@ -10,7 +10,10 @@ details.personal-notebook-wrapper > summary {
 
 .personal-notebook-save-result {
     display: inline-block;
-    padding: 7.5px;
+    padding: 0 7.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .personal-notebook-save-result-success {
@@ -19,6 +22,26 @@ details.personal-notebook-wrapper > summary {
 
 .personal-notebook-save-result-error {
     color: red;
+}
+
+.personal-notebook-save-result-progress {
+    width: 16px;
+    height: 16px;
+    border: 3px solid #ccc;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .personal-notebook-table {

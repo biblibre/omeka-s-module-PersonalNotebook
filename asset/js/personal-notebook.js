@@ -28,6 +28,19 @@
                     resultElement.replaceChildren(successElement);
                 }
             });
+
+            let inputTimeoutId;
+            form.elements['o-module-personal-notebook:content'].addEventListener('input', function (ev) {
+                const resultElement = form.querySelector('.personal-notebook-save-result');
+                if (!resultElement.querySelector('.personal-notebook-save-result-progress')) {
+                    const loadingElement = document.createElement('span');
+                    loadingElement.classList.add('personal-notebook-save-result-progress');
+                    resultElement.replaceChildren(loadingElement);
+                }
+
+                clearTimeout(inputTimeoutId);
+                inputTimeoutId = setTimeout(() => { form.requestSubmit(); }, 500);
+            });
         });
     });
 
@@ -39,7 +52,9 @@
         const method = form.getAttribute('data-method');
 
         const submitter = event.submitter;
-        submitter.setAttribute('disabled', '');
+        if (submitter) {
+            submitter.setAttribute('disabled', '');
+        }
 
         const formData = new FormData(form);
         const body = JSON.stringify({
@@ -71,7 +86,9 @@
             });
             form.dispatchEvent(ev);
         }).finally(function () {
-            submitter.removeAttribute('disabled');
+            if (submitter) {
+                submitter.removeAttribute('disabled');
+            }
         });
     }
 })();

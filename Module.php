@@ -86,7 +86,7 @@ class Module extends AbstractModule
 
         $view = $event->getTarget();
 
-        echo $view->personalNotebook()->form($view->item);
+        echo $view->partial('personal-notebook/common/personal-notebook-block', ['resource' => $view->item]);
     }
 
     public function onSiteMediaViewShowAfter(Event $event)
@@ -99,7 +99,7 @@ class Module extends AbstractModule
 
         $view = $event->getTarget();
 
-        echo $view->personalNotebook()->form($view->media);
+        echo $view->partial('personal-notebook/common/personal-notebook-block', ['resource' => $view->media]);
     }
 
     public function onAdminIndexViewBrowseAfter(Event $event)

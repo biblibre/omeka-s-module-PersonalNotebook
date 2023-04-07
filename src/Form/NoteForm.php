@@ -19,6 +19,9 @@ class NoteForm extends Form
         $this->add([
             'type' => Textarea::class,
             'name' => 'o-module-personal-notebook:content',
+            'attributes' => [
+                'placeholder' => 'Personal notes...', // @translate
+            ],
         ]);
     }
 }

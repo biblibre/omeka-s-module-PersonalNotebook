@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-12 15:09+0100\n"
+"POT-Creation-Date: 2023-04-07 16:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,6 @@ msgid "Resource URL"
 msgstr ""
 
 #: src/Controller/Site/NoteController.php:26
-#: view/personal-notebook/block-layout/personal-notebook.phtml:16
 msgid "Notes"
 msgstr ""
 
@@ -43,24 +42,16 @@ msgid "Number of users that wrote a note:"
 msgstr ""
 
 #: view/personal-notebook/block-layout/personal-notebook.phtml:7
-#: view/personal-notebook/helper/personal-notebook/form.phtml:15
+#: view/personal-notebook/common/personal-notebook-block.phtml:1
 msgid "Personal notes"
 msgstr ""
 
 #: view/personal-notebook/block-layout/personal-notebook.phtml:9
-msgid "Export as CSV"
+msgid "Export all personal notes as CSV"
 msgstr ""
 
-#: view/personal-notebook/block-layout/personal-notebook.phtml:17
-msgid "Actions"
-msgstr ""
-
-#: view/personal-notebook/block-layout/personal-notebook.phtml:24
+#: view/personal-notebook/block-layout/personal-notebook.phtml:15
 msgid "Resource missing"
-msgstr ""
-
-#: view/personal-notebook/helper/personal-notebook/form.phtml:20
-msgid "Save my notes"
 msgstr ""
 
 #: view/personal-notebook/site/note/delete.phtml:13
@@ -69,6 +60,10 @@ msgstr ""
 
 #: view/personal-notebook/site/note/delete.phtml:16
 msgid "Confirm notes deletion"
+msgstr ""
+
+#: src/Form/NoteForm.php:23
+msgid "Personal notes..."
 msgstr ""
 
 #: src/Form/SiteSettingsFieldset.php:19
