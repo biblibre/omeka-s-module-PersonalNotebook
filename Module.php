@@ -66,14 +66,26 @@ class Module extends AbstractModule
         $forms = $services->get('FormElementManager');
         $siteSettings = $services->get('Omeka\Settings\Site');
 
+        $form = $event->getTarget();
         $fieldset = $forms->get(SiteSettingsFieldset::class);
-        $fieldset->populateValues([
+
+        $element_groups = $form->getOption('element_groups');
+        if ($element_groups) {
+            $element_group = 'personalnotebook';
+            $element_groups[$element_group] = $fieldset->getLabel();
+            $form->setOption('element_groups', $element_groups);
+            foreach ($fieldset->getElements() as $element) {
+                $element->setOption('element_group', $element_group);
+                $form->add($element);
+            }
+        } else {
+            $form->add($fieldset);
+        }
+
+        $form->populateValues([
             'personalnotebook_show_after_item' => $siteSettings->get('personalnotebook_show_after_item'),
             'personalnotebook_show_after_media' => $siteSettings->get('personalnotebook_show_after_media'),
         ]);
-
-        $form = $event->getTarget();
-        $form->add($fieldset);
     }
 
     public function onSiteItemViewShowAfter(Event $event)
