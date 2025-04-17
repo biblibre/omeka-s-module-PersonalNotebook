@@ -30,6 +30,11 @@ return [
             dirname(__DIR__) . '/data/doctrine-proxies',
         ],
     ],
+    'resource_page_block_layouts' => [
+        'invokables' => [
+            'personalNotebook' => Site\ResourcePageBlockLayout\PersonalNotebook::class,
+        ],
+    ],
     'router' => [
         'routes' => [
             'site' => [
