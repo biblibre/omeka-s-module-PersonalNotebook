@@ -9,6 +9,8 @@ use PersonalNotebook\Form\NoteForm;
 
 class PersonalNotebook extends AbstractHelper
 {
+    protected $formElementManager;
+
     public function form($noteOrResource)
     {
         $view = $this->getView();

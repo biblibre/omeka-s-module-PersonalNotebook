@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fix element grouping in site settings page for Omeka S >= 4.0
 - Add resource page block layouts
+- Fix PHP warning about undefined property
 
 ## [0.1.0] - 2023-06-26
 
